@@ -56,7 +56,7 @@ Reconstruction</h1>
             <span class="author-block">
               <a href="https://jennyseidenschwarz.github.io/">Jenny Seidenschwarz</a><sup>1,2</sup>, </span>
             <span class="author-block">
-              <a href="https://research.nvidia.com/labs/dvl/author/qunjie-zhou/">Qunjie Zhoue</a><sup>3</sup>, </span>
+              <a href="https://research.nvidia.com/labs/dvl/author/qunjie-zhou/">Qunjie Zhou</a><sup>3</sup>, </span>
             <span class="author-block">
               <a href="https://www.bart-ai.com/">Bardenius Duisterhof</a><sup>2</sup>, </span> <br>
             <span class="author-block">
@@ -144,7 +144,7 @@ Reconstruction</h1>
 <br>
 
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -163,7 +163,7 @@ Reconstruction</h1>
 
 
 <section class="section">
-  <div class="container is-max-desktop">
+  <div class="container">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -173,7 +173,15 @@ Reconstruction</h1>
         <br>
         <div class="content has-text-justified">
           <p>
-            Building on top of [1, 2], we combine the powerful 3DGS-based dynamic scene representation and the flexible online tracking paradigm for pose-free videos through simultaneous scene reconstruction and camera localization. The key to DynOMo’s performance lies in three technical adaptions for the online tracking setting, namely, 1) reconstruction signal enhancement with stronger image features and depth supervisions, 2) semantic-based foreground and background separation to enable camera tracking, and 3) motion regularization bootstrapping via a feature-similarity-guided weighting mechanism.
+            Our pipeline assumes an input video sequence, (predicted) depth maps, sparse segmentation masks as well as image features as input. 
+            Building on top of [1, 2], we combine the powerful 3DGS-based dynamic scene representation and the flexible online tracking paradigm 
+            for pose-free videos through simultaneous scene reconstruction and camera localization. The key to DynOMo’s performance lies in three 
+            technical adaptions for the online tracking setting, namely, 1) reconstruction signal enhancement with stronger image features and depth 
+            supervisions, 2) semantic-based foreground and background separation to enable camera tracking, and 3) motion regularization bootstrapping via a 
+            feature-similarity-guided weighting mechanism.
+            The <b>above figure</b> pictures an overview of our online reconstruction pipeline. We optimize for the camera
+            pose C, add a set of new Gaussians based on the densification concept [1], optimize all Gaussians together and forward propagate G and
+            C. Finally, we directly extract 3D point trajectories from single Gaussians G<sub>p</sub> and project them to the image plane to obtain 2D trajectories.
           </p>
         </div>
       </div>
@@ -270,7 +278,7 @@ Reconstruction</h1>
 
 <section>
   <div class="columns is-centered has-text-centered">
-    <h2 class="title is-3"> Emerjent Trajectories and Online Reconstruction on Davis</h2>
+    <h2 class="title is-3"> Emergent Trajectories and Online Reconstruction on Davis</h2>
   </div>
   <div class="video-grid-three-cols-wide">
     <div class="video-container">
@@ -280,7 +288,7 @@ Reconstruction</h1>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
-        <source data-src="static/videos/Visualization/davis/gold-fish/grid_points_vis/vid_trails_20.mp4" type="video/mp4">
+        <source data-src="static/videos/Visualization/davis/gold-fish/grid_points_vis/vid_trails_30.mp4" type="video/mp4">
       </video>
       <h2 class="video-title">Emergent Trajectories</h2>
     </div>
@@ -298,7 +306,7 @@ Reconstruction</h1>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
-        <source data-src="static/videos/Visualization/davis/camel/grid_points_vis/vid_trails_20.mp4" type="video/mp4">
+        <source data-src="static/videos/Visualization/davis/camel/grid_points_vis/vid_trails_30.mp4" type="video/mp4">
       </video>
       <h2 class="video-title">Emergent Trajectories</h2>
     </div>
@@ -317,7 +325,7 @@ Reconstruction</h1>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
-        <source data-src="static/videos/Visualization/davis/libby/grid_points_vis/vid_trails_20.mp4" type="video/mp4">
+        <source data-src="static/videos/Visualization/davis/libby/grid_points_vis/vid_trails_30.mp4" type="video/mp4">
       </video>
       <h2 class="video-title">Emergent Trajectories</h2>
     </div>
@@ -328,6 +336,7 @@ Reconstruction</h1>
     </div>
   </div>
   -->
+  <!--
   <div class="video-grid-three-cols-wide">
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls_input.jpg">
@@ -336,7 +345,7 @@ Reconstruction</h1>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
-        <source data-src="static/videos/Visualization/davis/goat/grid_points_vis/vid_trails_20.mp4" type="video/mp4">
+        <source data-src="static/videos/Visualization/davis/goat/grid_points_vis/vid_trails_30.mp4" type="video/mp4">
       </video>
       <h2 class="video-title">Emergent Trajectories</h2>
     </div>
@@ -346,6 +355,7 @@ Reconstruction</h1>
       <h2 class="video-title">Online Reconstruction</h2>
     </div>
   </div>
+  -->
   <div class="video-grid-three-cols-wide">
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls_input.jpg">
@@ -354,7 +364,7 @@ Reconstruction</h1>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
-        <source data-src="static/videos/Visualization/davis/bmx-trees/grid_points_vis/vid_trails_20.mp4" type="video/mp4">
+        <source data-src="static/videos/Visualization/davis/bmx-trees/grid_points_vis/vid_trails_30.mp4" type="video/mp4">
       </video>
       <h2 class="video-title">Emergent Trajectories</h2>
     </div>
@@ -372,7 +382,7 @@ Reconstruction</h1>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
-        <source data-src="static/videos/Visualization/davis/dance-twirl/grid_points_vis/vid_trails_20.mp4" type="video/mp4">
+        <source data-src="static/videos/Visualization/davis/dance-twirl/grid_points_vis/vid_trails_30.mp4" type="video/mp4">
       </video>
       <h2 class="video-title">Emergent Trajectories</h2>
     </div>
@@ -389,111 +399,9 @@ Reconstruction</h1>
 <br>
 <br>
 
-
-
 <section>
   <div class="columns is-centered has-text-centered">
-    <h2 class="title is-3"> 2D Tracking Comparison on Davis</h2>
-  </div>
-
-  <br>
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <p class="has-text-centered"> We visualize the comparison between 2D tracks from SpaTracker [3] as it is the state-of-the-art method and Omnimotion [4] since it is another optimization-baed approach. Without ever being trained on 
-          trajectories and without requiring flow as input to the optimization, DynOMo is able to generate emergent trajectories.
-        </p>
-      </div>
-    </div>
-  </div>
-  <br>
-
-  <div class="video-grid-three-cols-wide">
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls_input.jpg">
-        <source data-src="static/videos/Visualization/davis/parkour/grid_points_vis/vid_trails_0.mp4" type="video/mp4"></video>
-      <h2 class="video-title">DynOMo</h2>
-    </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
-        <source data-src="static/videos/Visualization/spatracker/parkour/grid_points_vis/vid_trails_0.mp4" type="video/mp4">
-      </video>
-      <h2 class="video-title">SpaTracker</h2>
-    </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls.jpg">
-        <source data-src="static/videos/Visualization/omnimotion/parkour/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
-      <h2 class="video-title">OmniMotion</h2>
-    </div>
-  </div>
-  <div class="video-grid-three-cols-wide">
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls_input.jpg">
-        <source data-src="static/videos/Visualization/davis/horsejump-high/grid_points_vis/vid_trails_0.mp4" type="video/mp4"></video>
-      <h2 class="video-title">DynOMo</h2>
-    </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
-        <source data-src="static/videos/Visualization/spatracker/horsejump-high/grid_points_vis/vid_trails_0.mp4" type="video/mp4">
-      </video>
-      <h2 class="video-title">SpaTracker</h2>
-    </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls.jpg">
-        <source data-src="static/videos/Visualization/omnimotion/horsejump-high/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
-      <h2 class="video-title">OmniMotion</h2>
-    </div>
-  </div>
-  <div class="video-grid-three-cols-wide">
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls_input.jpg">
-        <source data-src="static/videos/Visualization/davis/libby/grid_points_vis/vid_trails_0.mp4" type="video/mp4"></video>
-      <h2 class="video-title">DynOMo</h2>
-    </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
-        <source data-src="static/videos/Visualization/spatracker/libby/grid_points_vis/vid_trails_0.mp4" type="video/mp4">
-      </video>
-      <h2 class="video-title">SpaTracker</h2>
-    </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls.jpg">
-        <source data-src="static/videos/Visualization/omnimotion/libby/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
-      <h2 class="video-title">OmniMotion</h2>
-    </div>
-  </div>
-  <!--
-  <div class="video-grid-three-cols-wide">
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls_input.jpg">
-        <source data-src="static/videos/Visualization/davis/pigs/grid_points_vis/vid_trails_0.mp4" type="video/mp4"></video>
-      <h2 class="video-title">DynOMo</h2>
-    </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
-        <source data-src="static/videos/Visualization/spatracker/pigs/grid_points_vis/vid_trails_0.mp4" type="video/mp4">
-      </video>
-      <h2 class="video-title">SpaTracker</h2>
-    </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls.jpg">
-        <source data-src="static/videos/Visualization/omnimotion/pigs/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
-      <h2 class="video-title">OmniMotion</h2>
-    </div>
-  </div>
-  -->
-
-  </div>
-</section>
-
-<br>
-<br>
-<br>
-
-
-<section>
-  <div class="columns is-centered has-text-centered">
-    <h2 class="title is-3"> Emerjent Trajectories and Online Reconstruction On Panoptic Sport</h2>
+    <h2 class="title is-3"> Emergent Trajectories and Online Reconstruction On Panoptic Sport</h2>
   </div> 
   <div class="container is-max-desktop">
     <div class="columns is-centered">
@@ -512,7 +420,7 @@ Reconstruction</h1>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/paper-windmill_d3dgs.jpg">
-        <source data-src="static/videos/Visualization/panoptic_sport/basketball/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
+        <source data-src="static/videos/Visualization/panoptic_sport/basketball/grid_points_vis/vid_trails_30.mp4" type="video/mp4"></video>
       <h2 class="video-title">Emergent Trajectories</h2>
     </div>
     <div class="video-container">
@@ -536,7 +444,7 @@ Reconstruction</h1>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/paper-windmill_d3dgs.jpg">
-        <source data-src="static/videos/Visualization/panoptic_sport/juggle/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
+        <source data-src="static/videos/Visualization/panoptic_sport/juggle/grid_points_vis/vid_trails_30.mp4" type="video/mp4"></video>
       <h2 class="video-title">Emergent Trajectories</h2>
     </div>
     <div class="video-container">
@@ -560,7 +468,7 @@ Reconstruction</h1>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline poster="static/images/paper-windmill_d3dgs.jpg">
-        <source data-src="static/videos/Visualization/panoptic_sport/boxes/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
+        <source data-src="static/videos/Visualization/panoptic_sport/boxes/grid_points_vis/vid_trails_30.mp4" type="video/mp4"></video>
       <h2 class="video-title">Emergent Trajectories</h2>
     </div>
     <div class="video-container">
@@ -584,7 +492,7 @@ Reconstruction</h1>
 
 <section>
   <div class="columns is-centered has-text-centered">
-    <h2 class="title is-3"> Emerjent Trajectories and Online Reconstruction On IPhone Dataset</h2>
+    <h2 class="title is-3"> Emergent Trajectories and Online Reconstruction On IPhone Dataset</h2>
   </div>
   <!-- <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -696,63 +604,148 @@ Reconstruction</h1>
 <br>
 <br>
 
-<section>
-  <div class="columns is-centered has-text-centered">
-    <h2 class="title is-3"> Tracking Comparison On IPhone Dataset</h2>
-  </div>
-  <!-- <div class="container is-max-desktop">
+<section class="section">
+  <div class="container">
+    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
+        <h2 class="title is-3">Comparisons on 2D and 3D Tracking</h2>
+        <h2 class="title is-4">2D Tracking Comparison on Davis</h2>
         <div class="content has-text-justified">
-            <p>
-            </p>
+          <p>
+            We visualize the comparison between 2D tracks from SpaTracker [3] as it is the state-of-the-art method and Omnimotion [4] since it is another optimization-baed approach. While <b>SpaTracker was trained on 
+            trajectories</b> and <b>Omnimotion requires heavily preprocessed flow as input and is offline optimized</b>, DynOMo is able to generate emergent trajectories.          </p>
         </div>
       </div>
     </div>
-  </div> -->
+    <br>
 
-  <br>
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <p class="has-text-centered"> We visualize the comparison between 2D and 3D Tracking of Shape of Motion [6] and TAPIR [5] (both visualizations from <a href="https://shape-of-motion.github.io/">Shape of Motion</a>) DynOMo. While TAPIR was trained on
-        trajectory data and Shape of Motion requires TAPIR 2D tracks as input, DynOMo obtains 2D and 3D tracks in an emergent manner. Due to the nature of the Gaussians, Gaussians that represent non-rigid objects move slightly over time.</p>
+    <div class="video-grid-three-cols-wide">
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
+          <source data-src="static/videos/Visualization/spatracker/parkour/grid_points_vis/vid_trails_0.mp4" type="video/mp4">
+        </video>
+        <h2 class="video-title">SpaTracker</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls.jpg">
+          <source data-src="static/videos/Visualization/omnimotion/parkour_100000_foreground_0.mp4" type="video/mp4"></video>
+        <h2 class="video-title">OmniMotion</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls_input.jpg">
+          <source data-src="static/videos/Visualization/davis/parkour/grid_points_vis/vid_trails_0.mp4" type="video/mp4"></video>
+        <h2 class="video-title">DynOMo</h2>
       </div>
     </div>
-  </div>
-  <br>
+    <div class="video-grid-three-cols-wide">
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
+          <source data-src="static/videos/Visualization/spatracker/horsejump-high/grid_points_vis/vid_trails_0.mp4" type="video/mp4">
+        </video>
+        <h2 class="video-title">SpaTracker</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls.jpg">
+          <source data-src="static/videos/Visualization/omnimotion/horsejump-high_100000_foreground_0.mp4" type="video/mp4"></video>
+        <h2 class="video-title">OmniMotion</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls_input.jpg">
+          <source data-src="static/videos/Visualization/davis/horsejump-high/grid_points_vis/vid_trails_0.mp4" type="video/mp4"></video>
+        <h2 class="video-title">DynOMo</h2>
+      </div>
+    </div>
+    <div class="video-grid-three-cols-wide">
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
+          <source data-src="static/videos/Visualization/spatracker/libby/grid_points_vis/vid_trails_0.mp4" type="video/mp4">
+        </video>
+        <h2 class="video-title">SpaTracker</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls.jpg">
+          <source data-src="static/videos/Visualization/omnimotion/libby_100000_foreground_0.mp4" type="video/mp4"></video>
+        <h2 class="video-title">OmniMotion</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls_input.jpg">
+          <source data-src="static/videos/Visualization/davis/libby/grid_points_vis/vid_trails_0.mp4" type="video/mp4"></video>
+        <h2 class="video-title">DynOMo</h2>
+      </div>
+    </div>
+    <!--
+    <div class="video-grid-three-cols-wide">
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls_input.jpg">
+          <source data-src="static/videos/Visualization/davis/pigs/grid_points_vis/vid_trails_0.mp4" type="video/mp4"></video>
+        <h2 class="video-title">DynOMo</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls-tracks.jpg">
+          <source data-src="static/videos/Visualization/spatracker/pigs/grid_points_vis/vid_trails_0.mp4" type="video/mp4">
+        </video>
+        <h2 class="video-title">SpaTracker</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline poster="static/images/schoolgirls.jpg">
+          <source data-src="static/videos/Visualization/omnimotion/pigs/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
+        <h2 class="video-title">OmniMotion</h2>
+      </div>
+    </div>
+    -->
 
-  <div class="video-grid-three-cols-wide">
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos//Visualization/SOM/mochi-high-five_som_2d.mp4" type="video/mp4"></video>
-      <h2 class="video-title">Shape of Motion</h2>
+    <br>
+
+    <div class="container">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4">Tracking Comparison On IPhone Dataset</h2>
+          <div class="content has-text-justified">
+            <p>
+              We visualize the comparison between 2D and 3D Tracking of Shape of Motion [6] and TAPIR [5] (both visualizations from <a href="https://shape-of-motion.github.io/">Shape of Motion</a>) DynOMo. While <b>TAPIR was trained on
+          trajectory data </b> and <b>Shape of Motion requires TAPIR 2D tracks as input and is optimized in an offline manner</b>, DynOMo obtains 2D and 3D tracks in an emergent manner. Due to the nature of the Gaussians, Gaussians that represent non-rigid objects move slightly over time.</p>
+        </div>
+        </div>
+      </div>
     </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos//Visualization/SOM/mochi-high-five_tapir.mp4" type="video/mp4">
-      </video>
-      <h2 class="video-title">TAPIR</h2>
+
+    <br>
+
+    <div class="video-grid-three-cols-wide">
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos//Visualization/SOM/mochi-high-five_tapir.mp4" type="video/mp4">
+        </video>
+        <h2 class="video-title">TAPIR</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos//Visualization/SOM/mochi-high-five_som_2d.mp4" type="video/mp4"></video>
+        <h2 class="video-title">Shape of Motion</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/iphone/mochi-high-five/grid_points_vis/vid_trails_0.mp4" type="video/mp4">
+        </video>
+        <h2 class="video-title">DynOMo</h2>
+      </div>
     </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/iphone/mochi-high-five/grid_points_vis/vid_trails_0.mp4" type="video/mp4">
-      </video>
-      <h2 class="video-title">DynOMo</h2>
+    
+    <div class="video-grid-three-cols-wide">
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos//Visualization/SOM/paper-windmill_tapir_da.mp4" type="video/mp4"></video>
+        <h2 class="video-title">TAPIR</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/SOM/paper-windmill_som.mp4" type="video/mp4"></video>
+        <h2 class="video-title">Shape of Motion</h2>
+      </div>
+      <div class="video-container">
+        <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/iphone/paper-windmill/grid_points_vis/vid_trails_20.mp4" type="video/mp4">
+        </video>
+        <h2 class="dynomo">DynOMo</h2>
+      </div>
     </div>
-  </div>
-  
-  <div class="video-grid-three-cols-wide">
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/SOM/paper-windmill_som.mp4" type="video/mp4"></video>
-      <h2 class="video-title">Shape of Motion</h2>
-    </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos//Visualization/SOM/paper-windmill_tapir_da.mp4" type="video/mp4"></video>
-      <h2 class="video-title">TAPIR</h2>
-    </div>
-    <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/iphone/paper-windmill/grid_points_vis/vid_trails_20.mp4" type="video/mp4">
-      </video>
-      <h2 class="dynomo">DynOMo</h2>
-    </div>
+
   </div>
 </section>
 
@@ -760,22 +753,26 @@ Reconstruction</h1>
 <br>
 
 <section>
-  <div class="columns is-centered has-text-centered">
-    <h2 class="title is-3"> Failure Cases</h2>
-  </div>
-  <br>
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <p class="has-text-centered"> Extreme camera motion and extreme object acceleration. </p>
+
+
+  <section class="section">
+    <div class="container">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Failure Cases</h2>
+          <div class="content has-text-justified">
+            <p>
+              DynOMo struggles with extreme camera motion and camera rotation as well as extreme camera acceleration. Additionally, extreme occlusions especially close to the camera break the camera pose optimization as well as the reconstruction. </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
+      <br>
 
   <div class="video-grid-four-cols">
     <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/davis/motocross-jump/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
-      <h2 class="dynomo">Emerjent Trajectories</h2>
+      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/davis/motocross-jump/grid_points_vis/vid_trails_30.mp4" type="video/mp4"></video>
+      <h2 class="dynomo">Emergent Trajectories</h2>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/davis/motocross-jump/rendered_rgb_/vid_trails.mp4" type="video/mp4"></video>
@@ -783,8 +780,8 @@ Reconstruction</h1>
     </div>
 
     <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/panoptic_sport/football/ims/18/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
-      <h2 class="dynomo">Emerjent Trajectories</h2>
+      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/panoptic_sport/football/ims/18/grid_points_vis/vid_trails_30.mp4" type="video/mp4"></video>
+      <h2 class="dynomo">Emergent Trajectories</h2>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/panoptic_sport/football/ims/18/rendered_rgb_/vid_trails.mp4" type="video/mp4"></video>
@@ -793,17 +790,10 @@ Reconstruction</h1>
   </div>
 
   <br>
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <p class="has-text-centered"> Extreme Occlusion and Unobserved Regions. </p>
-      </div>
-    </div>
-  </div>
   <div class="video-grid-four-cols">
     <div class="video-container">
-      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/davis/india/grid_points_vis/vid_trails_20.mp4" type="video/mp4"></video>
-      <h2 class="dynomo">Emerjent Trajectories</h2>
+      <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/davis/india/grid_points_vis/vid_trails_30.mp4" type="video/mp4"></video>
+      <h2 class="dynomo">Emergent Trajectories</h2>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/davis/india/rendered_rgb_/vid_trails.mp4" type="video/mp4"></video>
@@ -812,7 +802,7 @@ Reconstruction</h1>
 
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/davis/shooting/grid_points_vis/vid_trails_20_adapted.mp4" type="video/mp4"></video>
-      <h2 class="dynomo">Emerjent Trajectories</h2>
+      <h2 class="dynomo">Emergent Trajectories</h2>
     </div>
     <div class="video-container">
       <video class="lazy" autoplay controls muted loop playsinline> <source data-src="static/videos/Visualization/davis/shooting/rendered_rgb_/vid_trails_adapted.mp4" type="video/mp4"></video>
@@ -823,16 +813,16 @@ Reconstruction</h1>
 </section>
 
 <br>
-<section class="section" id="Citations">
+<section class="section" id="Related Work">
   <div class="container is-max-desktop content">
-    <h2 class="title is-3">Citations</h2>
+    <h2 class="title is-3">Related Work</h2>
     <ol>
-      <li>Nikhil Keetha, Jay Karhade, Krishna Murthy Jatavallabhula, Gengshan Yang, Sebastian Scherer, Deva Ramanan, and Jonathon Luiten. Splatam: Splat, track & map 3d gaussians for dense rgb-d slam. In CVPR, 2024.</li>
-      <li>Jonathon Luiten, Georgios Kopanas, Bastian Leibe, and Deva Ramanan. Dynamic 3d gaussians: Tracking by persistent dynamic view synthesis. In 3DV, 2024.</li>
-      <li>Yuxi Xiao, Qianqian Wang, Shangzhan Zhang, Nan Xue, Sida Peng, Yujun Shen, and Xiaowei Zhou. Spatialtracker: Tracking any 2d pixels in 3d space. In CVPR, 2024</li>
-      <li>TQianqian Wang, Yen-Yu Chang, Ruojin Cai, Zhengqi Li, Bharath Hariharan, Aleksander Holynski, and Noah Snavely. Tracking everything everywhere all at once. In ICCV, 2023</li>
-      <li>Carl Doersch, Yi Yang, Mel Vecerık, Dilara Gokay, Ankush Gupta, Yusuf Aytar, Joao Carreira, and Andrew Zisserman. TAPIR: tracking any point with per-frame initialization and temporal refinement. In ICCV3, 2023.</li>
-      <li>Qianqian Wang, Vickie Ye, Hang Gao, Jake Austin, Zhengqi Li, and Angjoo Kanazawa. Shape of motion: 4d reconstruction from a single video. In arXiv preprint arXiv:2407.13764, 2024.</li>
+      <li><a href="https://spla-tam.github.io/">SplaTAM: Splat, Track & Map 3D Gaussians for Dense RGB-D SLAM (CVPR 2024)</a></li>
+      <li><a href="https://dynamic3dgaussians.github.io/">Dynamic 3d gaussians: Tracking by persistent dynamic view synthesis (3DV 2024)</a></li>
+      <li><a href="https://henry123-boy.github.io/SpaTracker/">Spatialtracker: Tracking any 2d pixels in 3d space (CVPR 2024)</a></li>
+      <li><a href="https://omnimotion.github.io/">Tracking everything everywhere all at once (ICCV 2023)</a></li>
+      <li><a href="https://deepmind-tapir.github.io/">TAPIR: tracking any point with per-frame initialization and temporal refinement (ICCV3 2023) </a></li>
+      <li><a href="https://shape-of-motion.github.io/">Shape Of Motion: 4D Reconstruction from a Single Video (arxiv 2024)</a></li>
     </ol>
   </div>
 </section>
@@ -857,9 +847,9 @@ Reconstruction</h1>
     <pre><code>
 @inproceedings{som2024,
   title     = {DynOMo: Online Point Tracking by Dynamic Online Monocular Gaussian Reconstruction},
-  author    = {Wang, Qianqian and Ye, Vickie and Gao, Hang and Austin, Jake and Li, Zhengqi and Kanazawa, Angjoo},
-  journal   = {arXiv preprint arXiv:2407.13764},
-  year      = {2024}
+  author    = {Jenny Seidenschwarz, Qunjie Zhou, Bardienus Duisterhof, Deva Ramanan, Laura Leal{-}Taix{\'{e}}},
+  journal   = {3DV},
+  year      = {2025}
 }
 </code></pre>
   </div>
